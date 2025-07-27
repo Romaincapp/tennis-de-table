@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tennis Championship Manager</title>
+    <meta name="description" content="Application de gestion complète pour championnats de tennis de table">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#1976d2">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    
+    <!-- Icons -->
+    <link rel="icon" href="assets/icons/icon-32x32.png" sizes="32x32">
+    <link rel="icon" href="assets/icons/icon-192x192.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192x192.png">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <h1 class="logo">🏓 Tennis Championship Manager</h1>
+                <nav class="nav">
+                    <button class="nav-btn" data-page="players">Joueurs</button>
+                    <button class="nav-btn" data-page="divisions">Divisions</button>
+                    <button class="nav-btn" data-page="matches">Matchs</button>
+                    <button class="nav-btn" data-page="results">Résultats</button>
+                    <button class="nav-btn" data-page="rankings">Classements</button>
+                    <button class="nav-btn" data-page="stats">Statistiques</button>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <div class="container">
+                <!-- Welcome Page -->
+                <section id="welcome" class="page active">
+                    <div class="welcome-content">
+                        <h2>Bienvenue dans Tennis Championship Manager</h2>
+                        <p>Application complète pour la gestion de championnats de tennis de table</p>
+                        
+                        <div class="quick-actions">
+                            <button class="btn btn-primary" data-action="setup">🚀 Configuration initiale</button>
+                            <button class="btn btn-secondary" data-action="demo">📊 Charger données d'exemple</button>
+                        </div>
+
+                        <div class="features">
+                            <div class="feature">
+                                <h3>👥 Gestion des joueurs</h3>
+                                <p>Inscription, modification, import/export</p>
+                            </div>
+                            <div class="feature">
+                                <h3>🏆 Divisions multiples</h3>
+                                <p>3 divisions configurables avec répartition automatique</p>
+                            </div>
+                            <div class="feature">
+                                <h3>📅 Planification automatique</h3>
+                                <p>Génération optimisée des matchs par date</p>
+                            </div>
+                            <div class="feature">
+                                <h3>📈 Classements temps réel</h3>
+                                <p>Calcul automatique et statistiques détaillées</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Players Page -->
+                <section id="players" class="page">
+                    <h2>Gestion des joueurs</h2>
+                    <div class="page-content">
+                        <div class="toolbar">
+                            <button class="btn btn-primary" id="add-player">➕ Nouveau joueur</button>
+                            <button class="btn btn-secondary" id="import-players">📥 Import CSV</button>
+                            <button class="btn btn-secondary" id="export-players">📤 Export</button>
+                        </div>
+                        <div id="players-list" class="data-list">
+                            <p class="empty-state">Aucun joueur inscrit. Commencez par ajouter des joueurs !</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Divisions Page -->
+                <section id="divisions" class="page">
+                    <h2>Gestion des divisions</h2>
+                    <div class="page-content">
+                        <div class="divisions-container">
+                            <div class="division" data-division="elite">
+                                <h3>🥇 Division Élite</h3>
+                                <div class="division-players"></div>
+                            </div>
+                            <div class="division" data-division="honneur">
+                                <h3>🥈 Division Honneur</h3>
+                                <div class="division-players"></div>
+                            </div>
+                            <div class="division" data-division="promotion">
+                                <h3>🥉 Division Promotion</h3>
+                                <div class="division-players"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Other pages will be loaded dynamically -->
+                <section id="matches" class="page">
+                    <h2>Planification des matchs</h2>
+                    <div class="page-content">
+                        <p>Fonctionnalité en cours de développement...</p>
+                    </div>
+                </section>
+
+                <section id="results" class="page">
+                    <h2>Saisie des résultats</h2>
+                    <div class="page-content">
+                        <p>Fonctionnalité en cours de développement...</p>
+                    </div>
+                </section>
+
+                <section id="rankings" class="page">
+                    <h2>Classements</h2>
+                    <div class="page-content">
+                        <p>Fonctionnalité en cours de développement...</p>
+                    </div>
+                </section>
+
+                <section id="stats" class="page">
+                    <h2>Statistiques</h2>
+                    <div class="page-content">
+                        <p>Fonctionnalité en cours de développement...</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2025 Tennis Championship Manager - Version 1.0.0</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Modals and overlays will be added here -->
+    <div id="modals"></div>
+
+    <!-- JavaScript -->
+    <script type="module" src="js/app.js"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('js/sw.js')
+                    .then(registration => console.log('SW registered'))
+                    .catch(error => console.log('SW registration failed'));
+            });
+        }
+    </script>
+</body>
+</html>
