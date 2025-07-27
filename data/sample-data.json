@@ -1,0 +1,30 @@
+{
+  "players": [
+    {
+      "id": "p001",
+      "name": "Martin Dupont",
+      "email": "martin.dupont@email.com",
+      "phone": "0612345678",
+      "level": 1500,
+      "division": "elite",
+      "registrationDate": "2025-01-01",
+      "status": "active"
+    },
+    {
+      "id": "p002",
+      "name": "Sophie Bernard",
+      "email": "sophie.bernard@email.com",
+      "phone": "0623456789",
+      "level": 1450,
+      "division": "elite",
+      "registrationDate": "2025-01-02",
+      "status": "active"
+    }
+  ],
+  "matches": [],
+  "results": [],
+  "settings": {
+    "currentDate": 1,
+    "championshipStarted": false
+  }
+}
